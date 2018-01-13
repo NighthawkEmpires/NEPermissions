@@ -1,0 +1,26 @@
+name: NEPermissions
+main: net.nighthawkempires.permissions.NEPermissions
+version: 1.0_a
+depend: [NECore]
+commands:
+   demote:
+     usage: /<command>
+     description: Demote command for NEPermisions.
+   donor:
+     usage: /<command>
+     aliases: [donors]
+     description: Donor command for NEPermissions.
+   group:
+     usage: /<command>
+     aliases: [groups]
+     description: Groups command for NEPermissions.
+   permissions:
+     usage: /<command>
+     aliases: [permission, perms, perm]
+     description: Permissions command for NEPermissions.
+   promote:
+     usage: /<command>
+     description: Promote command for NEPermissions.
+   status:
+     usage: /<command>
+     description: Status command for NEPermissions.

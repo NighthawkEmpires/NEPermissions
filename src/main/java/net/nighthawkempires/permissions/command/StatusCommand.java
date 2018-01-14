@@ -182,7 +182,7 @@ public class StatusCommand implements CommandExecutor {
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setStatus(status);
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " to "
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + "status to "
                                 + ChatColor.translateAlternateColorCodes('&', status.getPrefix().substring(0, 2) + status.getName()) + ChatColor.GRAY + ".");
                         target.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "Your status has been set to "
                                 + ChatColor.translateAlternateColorCodes('&', status.getPrefix().substring(0, 2) + status.getName()) + ChatColor.GRAY + ".");
@@ -195,7 +195,7 @@ public class StatusCommand implements CommandExecutor {
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setStatus(status);
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " to "
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + "status to "
                                 + ChatColor.translateAlternateColorCodes('&', status.getPrefix().substring(0, 2) + status.getName()) + ChatColor.GRAY + ".");
                     }
                 } else {

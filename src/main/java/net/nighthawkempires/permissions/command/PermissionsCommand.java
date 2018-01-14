@@ -244,7 +244,7 @@ public class PermissionsCommand implements CommandExecutor {
                             return true;
                         }
 
-                        tuser.getPermissions().add(args[3]);
+                        tuser.addPermission(args[3]);
                         if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                             getPermissionManager().setupPermissions(Bukkit.getPlayer(name));
                         }
@@ -318,7 +318,7 @@ public class PermissionsCommand implements CommandExecutor {
                             return true;
                         }
 
-                        tuser.getPermissions().remove(args[3]);
+                        tuser.removePermission(args[3]);
                         if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                             getPermissionManager().removePermission(Bukkit.getPlayer(args[2]), args[3]);
                         }

@@ -167,7 +167,7 @@ public class DonorCommand implements CommandExecutor {
 
                         tuser.setDonor(null);
                         NEPermissions.getPluginManager().callEvent(new DonorChangeEvent(target));
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have removed " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " donor rank.");
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have removed " + ChatColor.BLUE + target.getName() + "'s" + ChatColor.GRAY + " donor rank.");
                         target.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "Your donor rank has been removed.");
                         return true;
                     } else {
@@ -175,7 +175,7 @@ public class DonorCommand implements CommandExecutor {
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(null);
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have removed " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " donor rank.");
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have removed " + ChatColor.BLUE + target.getName() + "'s" + ChatColor.GRAY + " donor rank.");
                     }
                     return true;
                 } else if (args[0].toLowerCase().equals("set")) {
@@ -207,7 +207,6 @@ public class DonorCommand implements CommandExecutor {
                     Donor donor = tuser.getDonor();
                     player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.BLUE + Bukkit.getOfflinePlayer(name).getName() + "'s " + ChatColor.GRAY + "donor rank is set to "
                             + ChatColor.translateAlternateColorCodes('&', donor.getPrefix().substring(0, 2) + donor.getName()) + ChatColor.GRAY + ".");
-
                 } else {
                     player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + Lang.SYNTAX_ERROR.getMessage());
                     return true;
@@ -233,7 +232,7 @@ public class DonorCommand implements CommandExecutor {
 
                         tuser.setDonor(donor);
                         getPluginManager().callEvent(new DonorChangeEvent(target));
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " donor rank to "
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + "donor rank to "
                                 + ChatColor.translateAlternateColorCodes('&', donor.getPrefix().substring(0, 2) + donor.getName()) + ChatColor.GRAY + ".");
                         target.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "Your donor rank has been set to "
                                 + ChatColor.translateAlternateColorCodes('&', donor.getPrefix().substring(0, 2) + donor.getName()) + ChatColor.GRAY + ".");
@@ -243,7 +242,7 @@ public class DonorCommand implements CommandExecutor {
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(donor);
-                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " donor rank to "
+                        player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.GRAY + "You have set " + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + "donor rank to "
                                 + ChatColor.translateAlternateColorCodes('&', donor.getPrefix().substring(0, 2) + donor.getName()) + ChatColor.GRAY + ".");
                     }
                 } else {

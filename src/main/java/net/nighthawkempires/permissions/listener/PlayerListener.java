@@ -15,9 +15,6 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onLogin(PlayerLoginEvent event) {
         Player player = event.getPlayer();
-        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(player.getUniqueId().toString())) {
-            NEPermissions.getUserRegistry().loadFromDb(player.getUniqueId().toString());
-        }
         UserModel user = NEPermissions.getUserRegistry().getUser(player.getUniqueId());
 
         NEPermissions.getPermissionManager().setupPermissions(player);

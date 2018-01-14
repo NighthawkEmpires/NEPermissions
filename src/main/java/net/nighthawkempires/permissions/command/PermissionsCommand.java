@@ -5,12 +5,8 @@ import net.nighthawkempires.permissions.NEPermissions;
 import net.nighthawkempires.permissions.donor.Donor;
 import net.nighthawkempires.permissions.group.Group;
 import net.nighthawkempires.permissions.user.UserModel;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.*;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 import static net.nighthawkempires.permissions.NEPermissions.*;
@@ -315,9 +311,6 @@ public class PermissionsCommand implements CommandExecutor {
                         }
 
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         if (!tuser.getPermissions().contains(args[3])) {

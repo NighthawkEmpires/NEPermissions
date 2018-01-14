@@ -5,15 +5,12 @@ import net.nighthawkempires.permissions.NEPermissions;
 import net.nighthawkempires.permissions.donor.Donor;
 import net.nighthawkempires.permissions.event.DonorChangeEvent;
 import net.nighthawkempires.permissions.user.UserModel;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.*;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
-import static net.nighthawkempires.permissions.NEPermissions.*;
+import static net.nighthawkempires.permissions.NEPermissions.getDonorManager;
+import static net.nighthawkempires.permissions.NEPermissions.getPluginManager;
 
 public class DonorCommand implements CommandExecutor {
 
@@ -166,9 +163,6 @@ public class DonorCommand implements CommandExecutor {
 
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(null);
@@ -178,9 +172,6 @@ public class DonorCommand implements CommandExecutor {
                         return true;
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(null);
@@ -208,9 +199,6 @@ public class DonorCommand implements CommandExecutor {
                     }
 
                     OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                    if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                        NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                    }
                     UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
                     if (tuser.getDonor() == null) {
                         player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.RED + "That player does not have a donor rank set!");
@@ -241,9 +229,6 @@ public class DonorCommand implements CommandExecutor {
                     Donor donor = NEPermissions.getDonorManager().getDonor(sname);
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(donor);
@@ -255,9 +240,6 @@ public class DonorCommand implements CommandExecutor {
                         return true;
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setDonor(donor);

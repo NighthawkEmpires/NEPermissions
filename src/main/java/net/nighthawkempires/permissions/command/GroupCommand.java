@@ -5,12 +5,8 @@ import net.nighthawkempires.permissions.NEPermissions;
 import net.nighthawkempires.permissions.event.GroupChangeEvent;
 import net.nighthawkempires.permissions.group.Group;
 import net.nighthawkempires.permissions.user.UserModel;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.*;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 import static net.nighthawkempires.permissions.NEPermissions.getGroupManager;
@@ -126,9 +122,6 @@ public class GroupCommand implements CommandExecutor {
 
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         if (tuser.getGroup().getPriority() == 0) {
@@ -144,9 +137,6 @@ public class GroupCommand implements CommandExecutor {
                                 tuser.getGroup().getPrefix().substring(0, 2) + tuser.getGroup().getName()) + ChatColor.GRAY + ".");
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         if (tuser.getGroup().getPriority() == 0) {
@@ -200,9 +190,6 @@ public class GroupCommand implements CommandExecutor {
 
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         if (tuser.getGroup().getPriority() == 7) {
@@ -218,9 +205,6 @@ public class GroupCommand implements CommandExecutor {
                                 tuser.getGroup().getPrefix().substring(0, 2) + tuser.getGroup().getName()) + ChatColor.GRAY + ".");
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         if (tuser.getGroup().getPriority() == 7) {
@@ -257,18 +241,12 @@ public class GroupCommand implements CommandExecutor {
 
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " group is set to "
                                 + ChatColor.translateAlternateColorCodes('&', tuser.getGroup().getPrefix().substring(0, 2)) + tuser.getGroup().getName() + ChatColor.GRAY + ".");
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         player.sendMessage(Lang.CHAT_TAG.getServerChatTag() + ChatColor.BLUE + target.getName() + "'s " + ChatColor.GRAY + " group is set to "
@@ -344,9 +322,6 @@ public class GroupCommand implements CommandExecutor {
                     Group group = getGroupManager().getGroup(gname);
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(name))) {
                         Player target = Bukkit.getPlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setGroup(group);
@@ -357,9 +332,6 @@ public class GroupCommand implements CommandExecutor {
                                 tuser.getGroup().getPrefix().substring(0, 2) + tuser.getGroup().getName()) + ChatColor.GRAY + ".");
                     } else {
                         OfflinePlayer target = Bukkit.getOfflinePlayer(name);
-                        if (!NEPermissions.getUserRegistry().getRegisteredData().containsKey(target.getUniqueId().toString())) {
-                            NEPermissions.getUserRegistry().loadFromDb(target.getUniqueId().toString());
-                        }
                         UserModel tuser = NEPermissions.getUserRegistry().getUser(target.getUniqueId());
 
                         tuser.setGroup(group);
